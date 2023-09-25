@@ -1,21 +1,23 @@
-package kartyatrukk;
+package modell;
+
+import modell.Lap;
 
 public class Pakli {
  private int oszlop;
- private static String[] pakli = new String[22];
+ private static Lap[] pakli = new Lap[22];
     public Pakli(int oszlop) {
         this.oszlop=oszlop;
-
+        feltolt();
     }
     
-   public void feltolt(){
+   private void feltolt(){
         String[] szinek = {"P", "T", "Z", "M"};
         String[] ertekek = {"Ász", "Kir", "Fel", "X", "IX", "VIII"};
         int i = 1;
         for (String szin : szinek) {
             for (int e = 0; e < ertekek.length && i < pakli.length; e++) {
                 Lap lap = new Lap(szin + "_" + ertekek[e]);
-                pakli[i++] = lap.getLeiras();
+                pakli[i++] = lap;
             }
         }
     }
@@ -30,7 +32,7 @@ public class Pakli {
     }
     
    public void kever(int oszlop){
-         String[] ujPakli = new String[22];
+         Lap[] ujPakli = new Lap[22];
         switch (oszlop) {
             case 1:
                 for (int i = 1; i <= 7; i++) {
@@ -57,9 +59,16 @@ public class Pakli {
         pakli = ujPakli;
     }
     
-   public void ezVolt(){
-        System.out.println("A választott lap: " + pakli[11]);
+   public static Lap ezVolt(){
+        return pakli[11];
+    }
+
+    public static Lap[] getPakli() {
+        return pakli;
+    }
+
+    public static void setPakli(Lap[] pakli) {
+        Pakli.pakli = pakli;
     }
     
-   
 }

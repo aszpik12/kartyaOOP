@@ -1,17 +1,19 @@
-package kartyatrukk;
+package nezet;
 
 import java.util.Scanner;
+import modell.Pakli;
 
 public class KartyaTrukk {
     private Scanner sc = new Scanner(System.in);
     private Pakli kartya = new Pakli(0);
+
 
     public KartyaTrukk() {
        indit();
     }
     
     private void indit(){
-        kartya.feltolt();
+        kartya.getPakli();
         for (int i = 0; i < 3; i++) {
             kartya.kirak();
             int oszlop = melyik();
@@ -30,4 +32,9 @@ public class KartyaTrukk {
         } while (!jo);
         return oszlop;
     }
+    
+    private void kiir(){
+        System.out.println("A választott kártya: " + kartya.ezVolt());
+    }
+    
 }

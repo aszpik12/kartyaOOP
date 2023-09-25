@@ -1,4 +1,4 @@
-package kartyatrukk;
+package modell;
 
 public class Lap {
     
