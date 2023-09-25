@@ -4,19 +4,20 @@ import java.util.Scanner;
 
 public class KartyaTrukk {
     private Scanner sc = new Scanner(System.in);
+    private Pakli kartya = new Pakli(0);
 
     public KartyaTrukk() {
        indit();
     }
     
     private void indit(){
-        new Pakli.feltolt();
+        kartya.feltolt();
         for (int i = 0; i < 3; i++) {
-            new Pakli.kirak();
+            kartya.kirak();
             int oszlop = melyik();
-            new Pakli.kever(oszlop);
+            kartya.kever(oszlop);
         }
-        ezVolt();
+        kartya.ezVolt();
     }
     
     private int melyik(){

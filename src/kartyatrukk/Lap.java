@@ -4,8 +4,8 @@ public class Lap {
     
     private String leiras;
 
-    public Lap(){
-        
+    public Lap(String leiras){
+        this.leiras=leiras;
     }
 
     public String getLeiras() {
